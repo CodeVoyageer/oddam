@@ -2,15 +2,7 @@ import React from "react";
 import Bear from "../../assets/Background-Form.jpg";
 import "../../scss/HomeLogedStyle/formSteps.scss";
 
-const FormFirstStep = ({ selectedGiveaway, onCheckboxChange, onNext }) => {
-  const reusableClothesChecked = selectedGiveaway?.reusableClothes || false;
-  const clothesToDiscardChecked = selectedGiveaway?.clothesToDiscard || false;
-  const toysChecked = selectedGiveaway?.toys || false;
-  const booksChecked = selectedGiveaway?.books || false;
-  const othersChecked = selectedGiveaway?.others || false;
-  const handleCheckboxChange = (category) => {
-    onCheckboxChange(category);
-  };
+const FormFirstStep = ({ onNext }) => {
   const handleNext = () => {
     onNext();
   };
@@ -35,47 +27,25 @@ const FormFirstStep = ({ selectedGiveaway, onCheckboxChange, onNext }) => {
                 className="checkbox"
                 type="checkbox"
                 name="reusableClothes"
-                checked={reusableClothesChecked}
-                onChange={() => handleCheckboxChange("reusableClothes")}
               />
               <label htmlFor="ubrania">
                 ubrania, które nadają się do ponownego użycia
               </label>
             </div>
             <div className="checkbox-block">
-              <input
-                type="checkbox"
-                name="clothesToDiscard"
-                checked={clothesToDiscardChecked}
-                onChange={() => handleCheckboxChange("clothesToDiscard")}
-              />
+              <input type="checkbox" name="clothesToDiscard" />
               <label htmlFor="ubrania">ubrania, do wyrzucenia</label>
             </div>
             <div className="checkbox-block">
-              <input
-                type="checkbox"
-                name="toys"
-                checked={toysChecked}
-                onChange={() => handleCheckboxChange("toys")}
-              />
+              <input type="checkbox" name="toys" />
               <label htmlFor="ubrania">zabawki</label>
             </div>
             <div className="checkbox-block">
-              <input
-                type="checkbox"
-                name="books"
-                checked={booksChecked}
-                onChange={() => handleCheckboxChange("books")}
-              />
+              <input type="checkbox" name="books" />
               <label htmlFor="ubrania">książki</label>
             </div>
             <div className="checkbox-block">
-              <input
-                type="checkbox"
-                name="others"
-                checked={othersChecked}
-                onChange={() => handleCheckboxChange("others")}
-              />
+              <input type="checkbox" name="others" />
               <label htmlFor="ubrania">Inne</label>
             </div>
             <button className="form-btn" onClick={handleNext}>
