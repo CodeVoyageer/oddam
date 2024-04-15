@@ -1,10 +1,32 @@
-import React from "react";
-import "../../scss/HomeStyle/MainSection.scss";
+import React, { useState, useEffect } from "react";
+import "../../scss/HomeStyle/mainSection.scss";
 import HeroImage from "../../assets/Home-Hero-Image.jpg";
 import Decoration from "../../assets/Decoration.svg";
 import { Link as RouterLink } from "react-router-dom";
 import Navigation from "./Navigation";
+import { supabase } from "../../supabase";
+
 const MainSection = () => {
+  const [user, setUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const { data: user, error } = await supabase.auth.getUser();
+        if (error) {
+          throw error;
+        }
+        setUser(user);
+        setIsLoggedIn(true);
+      } catch (error) {
+        console.error("Błąd podczas pobierania użytkownika:", error.message);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <>
       <section className="homeSectionContainer">
@@ -23,11 +45,12 @@ const MainSection = () => {
               alt="decoration"
             />
             <div className="firstSection-buttons">
-              <RouterLink to="/logowanie">
+              {/* Przekierowanie do odpowiedniej ścieżki po kliknięciu */}
+              <RouterLink to={isLoggedIn ? "/LogedSection" : "/logowanie"}>
                 <button className="first-btn">Oddaj rzeczy</button>
               </RouterLink>
-              <RouterLink to="/logowanie">
-                <button className="first-btn">zorganizuj zbiórkę</button>
+              <RouterLink to={isLoggedIn ? "/LogedSection" : "/logowanie"}>
+                <button className="first-btn">Zorganizuj zbiórkę</button>
               </RouterLink>
             </div>
           </div>

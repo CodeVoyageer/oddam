@@ -11,7 +11,6 @@ const Navigation = () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      console.log(user);
       setUser(user);
     };
 
@@ -30,16 +29,17 @@ const Navigation = () => {
           {user ? (
             <>
               <p>Cześć {user.email}</p>
-             <RouterLink to={'/LogedSection'}><button className="nav-log-btn">Oddaj rzeczy</button></RouterLink> 
-              <RouterLink to={'/LogOut'}>
-              <button onClick={handleLogout} className="logOut-btn">
-                Wyloguj się
-              </button>
+              <RouterLink to={"/LogedSection"}>
+                <button className="nav-log-btn">Oddaj rzeczy</button>
+              </RouterLink>
+              <RouterLink to={"/LogOut"}>
+                <button onClick={handleLogout} className="logOut-btn">
+                  Wyloguj się
+                </button>
               </RouterLink>
             </>
           ) : (
             <>
-             
               <RouterLink to="/logowanie">
                 <button className="login-button">Zaloguj</button>
               </RouterLink>

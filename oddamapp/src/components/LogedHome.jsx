@@ -20,10 +20,21 @@ const LogedHome = () => {
   const handlePrevClick = () => {
     setCurrentPage((page) => page - 1);
   };
+
+  const handleCheckboxChange = (category) => {
+    // Logika obsługi zmiany zaznaczenia checkboxa
+    // Na przykład, możesz zaktualizować stan formData
+  };
   const renderForm = () => {
     switch (currentPage) {
       case 1:
-        return <FormFirstStep onNext={handleNextClick} />;
+        return (
+          <FormFirstStep
+            onNext={handleNextClick}
+            onCheckboxChange={handleCheckboxChange}
+          />
+        );
+
       case 2:
         return (
           <FormSecondStep onNext={handleNextClick} onPrev={handlePrevClick} />
