@@ -1,69 +1,68 @@
 @import "../settings/colors";
 .login-container {
-    margin-top: 37px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 10px;
-    .login-button {
-      border: none;
-      background-color: white;
-      cursor: pointer;
-      font-size: 14px;
-      color: #737373;
-      width: 90px;
-      height: 36px;
-    }
-    .register-button {
-      border: 0.75px solid #fad648;
-      background-color: white;
-      font-size: 14px;
-      color: #737373;
-      letter-spacing: 0px;
-      text-align: right;
-      width: 90px;
-      height: 36px;
-      cursor: pointer;
-    }
+  margin-top: 37px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  .login-button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    color: #737373;
+    width: 90px;
+    height: 36px;
   }
-  
-  .navigation-container {
-    .navigation-list {
-      display: flex;
-      gap: 30px;
-      margin-top: 24px;
-      justify-content: end;
-    }
-    .navigation-list_element {
-      width: auto;
-      height: 20px;
-      text-align: center;
-      padding: 5px 10px;
-      cursor: pointer;
-      color: $primary;
-      text-decoration: none;
-      a{
-        text-decoration: none;
-        color: $primary;
-      }
-    }
-    .navigation-list_element:nth-of-type(1).active{
-      border: 0.75px solid $primary;
-      
-    }
-  }
-
-  .nav-section{
-margin-right: 100px;
-  }
-
-  .nav-log-btn{
-    border: 1px solid gold;
-    background: none;
-    padding: 5px 10px;
+  .register-button {
+    border: 0.75px solid #fad648;
+    background-color: white;
+    font-size: 14px;
+    color: #737373;
+    letter-spacing: 0px;
+    text-align: right;
+    width: 90px;
+    height: 36px;
     cursor: pointer;
   }
-.logOut-btn{
+}
+
+.navigation-container {
+  .navigation-list {
+    display: flex;
+    gap: 30px;
+    margin-top: 24px;
+    justify-content: flex-end;
+  }
+  .navigation-list_element {
+    width: auto;
+    height: 20px;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: $primary;
+    text-decoration: none;
+    a {
+      text-decoration: none;
+      color: $primary;
+    }
+  }
+  .navigation-list_element:nth-of-type(1).active {
+    border: 0.75px solid $primary;
+  }
+}
+
+.nav-section {
+  margin-right: 100px;
+}
+
+.nav-log-btn {
+  border: 1px solid gold;
+  background: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.logOut-btn {
   background: none;
   border: none;
   cursor: pointer;

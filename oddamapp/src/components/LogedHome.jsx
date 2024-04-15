@@ -10,7 +10,7 @@ import FormThirdStep from "./LogedHome/FormThirdStep";
 
 const LogedHome = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [formData, setFormData] = useState({});
+  const [setFormData] = useState({});
 
   const handleNextClick = (data) => {
     setFormData((prevData) => ({ ...prevData, ...data }));

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../scss/HomeStyle/MainSection.scss";
+import "../../scss/HomeStyle/mainSection.scss";
 import HeroImage from "../../assets/Home-Hero-Image.jpg";
 import Decoration from "../../assets/Decoration.svg";
 import { Link as RouterLink } from "react-router-dom";
@@ -24,7 +24,7 @@ const MainSection = () => {
     };
 
     fetchUser();
-  }, []);
+  }, [setUser]);
   return (
     <>
       <section className="homeSectionContainer">

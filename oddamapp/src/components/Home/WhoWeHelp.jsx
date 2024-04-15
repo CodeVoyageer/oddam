@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Decoration from "../../assets/Decoration.svg";
 import "../../scss/HomeStyle/whoWeHelp.scss";
 import { supabase } from "../../supabase";
@@ -9,11 +9,7 @@ const WhoWeHelp = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
 
-  useEffect(() => {
-    getProducts();
-  }, [selectedCategory, currentPage]);
-
-  async function getProducts() {
+  const getProducts = useCallback(async () => {
     try {
       let { data, error } = await supabase
         .from("fundacjom")
@@ -26,13 +22,15 @@ const WhoWeHelp = () => {
     } catch (error) {
       alert(error.message);
     }
-  }
-
-  useEffect(() => {
-    setCurrentPage(1);
-    getProducts();
   }, [selectedCategory]);
 
+  useEffect(() => {
+    getProducts();
+  }, [selectedCategory, currentPage, getProducts]);
+
+  useEffect(() => {
+    getProducts();
+  }, [selectedCategory, currentPage, getProducts]);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = fetchData.slice(indexOfFirstItem, indexOfLastItem);
@@ -107,20 +105,3 @@ const WhoWeHelp = () => {
 };
 
 export default WhoWeHelp;
-
-// function Parent() {
-//   const [page, setPage] = useState();
-//   const [formData, setFormData] = useState({});
-
-//   const renderForm = () => {
-//     switch (page) {
-//       case 1:
-//         return <Form1 />;
-
-//       default:
-//         break;
-//     }
-//   };
-
-//   return renderForm();
-// }
