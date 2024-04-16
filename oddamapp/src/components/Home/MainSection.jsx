@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../scss/HomeStyle/mainSection.scss";
+import "../../scss/HomeStyle/MainSection.scss";
 
 import HeroImage from "../../assets/Home-Hero-Image.jpg";
 import Decoration from "../../assets/Decoration.svg";
