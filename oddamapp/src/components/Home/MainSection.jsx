@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../scss/HomeStyle/MainSection.scss";
+import "../../scss/HomeStyle/mainSection.scss";
 
 import HeroImage from "../../assets/Home-Hero-Image.jpg";
 import Decoration from "../../assets/Decoration.svg";
@@ -8,7 +8,7 @@ import { supabase } from "../../supabase";
 import Navigation from "./Navigation";
 
 const MainSection = () => {
-  const [setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -20,6 +20,7 @@ const MainSection = () => {
           throw error;
         }
         setUser(user);
+        console.log(user);
         setIsLoggedIn(true);
       } catch (error) {
         console.error("Błąd podczas pobierania użytkownika:", error.message);
@@ -47,10 +48,10 @@ const MainSection = () => {
               alt="decoration"
             />
             <div className="firstSection-buttons">
-              <RouterLink to={isLoggedIn ? "/logowanie" : "/logedSection"}>
+              <RouterLink to={isLoggedIn ? "/logedSection" : "/logowanie"}>
                 <button className="first-btn">Oddaj rzeczy</button>
               </RouterLink>
-              <RouterLink to={isLoggedIn ? "/logowanie" : "/LogedSection"}>
+              <RouterLink to={isLoggedIn ? "/logedSection" : "/logowanie"}>
                 <button className="first-btn">Zorganizuj zbiórkę</button>
               </RouterLink>
             </div>
