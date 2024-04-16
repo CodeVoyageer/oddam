@@ -11,6 +11,7 @@ const Navigation = () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
       setUser(user);
     };
 

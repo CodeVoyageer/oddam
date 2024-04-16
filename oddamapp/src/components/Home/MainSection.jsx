@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import "../../scss/HomeStyle/mainSection.scss";
+import "../../scss/HomeStyle/MainSection.scss";
+
 import HeroImage from "../../assets/Home-Hero-Image.jpg";
 import Decoration from "../../assets/Decoration.svg";
 import { Link as RouterLink } from "react-router-dom";
-import Navigation from "./Navigation";
 import { supabase } from "../../supabase";
+import Navigation from "./Navigation";
 
 const MainSection = () => {
-  const [user, setUser] = useState(null);
+  const [setUser] = useState(null);
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const MainSection = () => {
     };
 
     fetchUser();
-  }, []);
+  }, [setUser]);
 
   return (
     <>
@@ -45,7 +47,6 @@ const MainSection = () => {
               alt="decoration"
             />
             <div className="firstSection-buttons">
-              {/* Przekierowanie do odpowiedniej ścieżki po kliknięciu */}
               <RouterLink to={isLoggedIn ? "/LogedSection" : "/logowanie"}>
                 <button className="first-btn">Oddaj rzeczy</button>
               </RouterLink>
