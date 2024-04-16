@@ -47,10 +47,10 @@ const MainSection = () => {
               alt="decoration"
             />
             <div className="firstSection-buttons">
-              <RouterLink to={isLoggedIn ? "/LogedSection" : "/logowanie"}>
+              <RouterLink to={isLoggedIn ? "/logowanie" : "/logedSection"}>
                 <button className="first-btn">Oddaj rzeczy</button>
               </RouterLink>
-              <RouterLink to={isLoggedIn ? "/LogedSection" : "/logowanie"}>
+              <RouterLink to={isLoggedIn ? "/logowanie" : "/LogedSection"}>
                 <button className="first-btn">Zorganizuj zbiórkę</button>
               </RouterLink>
             </div>
