@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../scss/HomeStyle/MainSection.scss";
+import "../../scss/HomeStyle/mainSection.scss";
 
 import HeroImage from "../../assets/Home-Hero-Image.jpg";
 import Decoration from "../../assets/Decoration.svg";
@@ -8,6 +8,7 @@ import { supabase } from "../../supabase";
 import Navigation from "./Navigation";
 
 const MainSection = () => {
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,7 +21,7 @@ const MainSection = () => {
           throw error;
         }
         setUser(user);
-        console.log(user);
+
         setIsLoggedIn(true);
       } catch (error) {
         console.error("Błąd podczas pobierania użytkownika:", error.message);
